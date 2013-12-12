@@ -22,6 +22,7 @@ def index():
   r = REQ.get(artist_url, params=artist_args)
   artist_id = r.json()['Artists'][0]['Id']
   events_args = {"page":0, "api_key":"FYNKUZA76VXDNHM5GH3EVE3R", "zipCode":"94114", "radius":"50"}
+  print "artist id: "+str(artist_id)
   events_args['artistId'] = artist_id
   s = REQ.get(events_url, params=events_args)
   return Response(render_template('say.xml', mimetype='text/xml', events = s.text, phone_no = phone_no ))
