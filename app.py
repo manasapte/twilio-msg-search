@@ -13,7 +13,7 @@ client = TwilioRestClient(account_sid, auth_token)
 
 @app.route('/search')
 def index():
-  return Response(render_template('say.xml',mimetype='text/xml', data = list_of_events))
+  return Response(render_template('say.xml', mimetype='text/xml', phone_no=request.args.get('From'), body=request.args.get('Body') ))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0",port=8000)
