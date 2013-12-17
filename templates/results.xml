@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><Response>
+  <Message>
+    <Body>Hi {{phone_no}}, heres the result:
+      {% for event in events['Events'] %}
+        Artists:
+        {% for artist in event['Artists'] %}
+        {{ artist['Name'] }}
+        {% endfor %}
+
+        Date:
+        {{ event['Date'] }}
+
+        Venue:
+        {{ event['Venue']['Name'] }}
+        {{ event['Venue']['Address'] }}
+        {{ event['Venue']['City'] }}
+        {{ event['Venue']['Url'] }}
+      {% endfor %}
+    </Body>
+  </Message>
+</Response>
